@@ -1,0 +1,54 @@
+/* Estilos globales de MATEO IMPORTS. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables de diseño (tokens) para usar también fuera de Tailwind. */
+:root {
+  --color-cream: #F5F1E8;
+  --color-charcoal: #202020;
+  --color-terracotta: #A65D3F;
+}
+
+@layer base {
+  html {
+    /* Desplazamiento suave al navegar por anclas. */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Fondo crema (60%) y texto carbón (30%) por defecto. */
+    @apply bg-cream font-sans text-charcoal antialiased;
+    /* Evita desbordamiento horizontal en móviles. */
+    overflow-x: hidden;
+  }
+
+  /* Titulares con la tipografía editorial. */
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+
+  /* Foco visible y accesible en todos los elementos interactivos. */
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 3px;
+  }
+
+  /* Color de selección de texto acorde a la marca. */
+  ::selection {
+    background: var(--color-terracotta);
+    color: var(--color-cream);
+  }
+}
+
+/* Respeta a los usuarios que prefieren menos movimiento (accesibilidad). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

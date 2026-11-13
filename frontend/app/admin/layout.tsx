@@ -1,0 +1,13 @@
+// Layout de todas las rutas /admin.
+import type { Metadata } from "next";
+import AdminGuard from "@/components/admin/AdminGuard";
+
+// El panel no debe aparecer en buscadores.
+export const metadata: Metadata = {
+  title: "Panel administrativo",
+  robots: { index: false, follow: false },
+};
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return <AdminGuard>{children}</AdminGuard>;
+}
